@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    tools {
+        dockerTool 'docker' 
+    }
     stages {
         stage('Initialize'){
             steps {
@@ -7,11 +10,6 @@ pipeline {
               env.PATH = "${dockerHome}/bin:${env.PATH}"
             }
         }
-    }
-    tools {
-        dockerTool 'docker' 
-    }
-    stages {
         stage('build') {
             agent { docker { image 'node:14-alpine' } }
             steps {
