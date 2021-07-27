@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'env'
                 sh 'npm --version'
             }
         }
