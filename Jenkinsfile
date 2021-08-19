@@ -7,6 +7,7 @@ pipeline {
                 sh 'env'
                 sh 'npm --version'
             }
+        }
         stage('build2') {
             agent { docker "golang" }
             steps {
